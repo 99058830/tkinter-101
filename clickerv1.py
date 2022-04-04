@@ -1,22 +1,41 @@
-from cProfile import label
 from tkinter import *
 
 root = Tk()
-root.title('Clicker v1')
+root.geometry("400x400")
+root.title("Clicker v1")
 
-number = 0
+global counter
+counter = 0
 
 def up():
-    number + 1
-    jaj.config(text = number) # Change text ofzo
+    global counter
+    counter += 1
+    cButton2.config(text = counter)
+    main()
 
 def down():
-    number - 1
-    jaj["text"] = number
+    global counter
+    counter -= 1
+    cButton2.config(text = counter)
+    main()
 
-root.geometry("500x250")
-b1 = Button(root, text='Up', command=up).place(x=200, y=100)
-jaj = Label(text= number).pack(pady=30)
-b2 = Button(root, text='Down', command=down).place(x=300, y=100)
+cButton1 = Button(text = 'Up', command = up, fg = "darkgreen", bg = "white")
+cButton1.pack()
 
-mainloop()
+cButton2 = Button(text = counter, command = counter, fg = "darkgreen", bg = "white", state = DISABLED)
+cButton2.pack()
+
+cButton3 = Button(text = 'Down', command = down, fg = "darkgreen", bg = "white")
+cButton3.pack()
+
+def main():
+    if counter == 0:
+        root['bg'] = 'grey'
+    elif counter < 0:
+      root['bg'] = 'red'  
+    elif counter > 0:
+        root['bg'] = 'green'
+
+main()
+
+root.mainloop()
