@@ -22,7 +22,7 @@ def down():
 cButton1 = Button(text = 'Up', command = up, fg = "darkgreen", bg = "white")
 cButton1.pack()
 
-cButton2 = Button(text = counter, command = counter, fg = "darkgreen", bg = "white", state = DISABLED)
+cButton2 = Button(text = counter, fg = "darkgreen", bg = "white", state = DISABLED)
 cButton2.pack()
 
 cButton3 = Button(text = 'Down', command = down, fg = "darkgreen", bg = "white")
